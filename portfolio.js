@@ -58,6 +58,7 @@ circles.forEach((circle) => {
   var dots = circle.getAttribute("data-dots");
   var marked = circle.getAttribute("data-percent");
   var percent = Math.floor((dots * marked) / 100);
+  console.log(percent);
   var points = "";
   var rotate = 360 / dots;
   for (let i = 0; i < dots; i++) {
@@ -68,4 +69,12 @@ circles.forEach((circle) => {
   for (let i = 0; i < percent; i++) {
     pointsMarked[i].classList.add("marked");
   }
+});
+//sticky navbar
+const header = document.querySelector("header");
+const home = document.querySelector(".about");
+const initialcoords = home.getBoundingClientRect();
+window.addEventListener("scroll", function () {
+  if (window.scrollY > initialcoords.top) header.classList.add("sticky");
+  else header.classList.remove("sticky");
 });
