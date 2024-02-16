@@ -78,3 +78,17 @@ window.addEventListener("scroll", function () {
   if (window.scrollY > initialcoords.top) header.classList.add("sticky");
   else header.classList.remove("sticky");
 });
+
+//toggle icon number
+
+let menuIcon = document.querySelector("#menu-icon");
+let navList = document.querySelector(".navbar");
+menuIcon.addEventListener("click", () => {
+  menuIcon.classList.toggle("bx-x");
+  navList.classList.toggle("open");
+});
+
+window.onscroll = () => {
+  menuIcon.classList.remove("bx-x");
+  navList.classList.remove("open");
+};
