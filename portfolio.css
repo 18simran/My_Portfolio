@@ -84,6 +84,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   position: relative;
+  scroll-behavior: smooth;
 }
 .sticky {
   position: fixed;
@@ -109,6 +110,7 @@ span {
 }
 .navbar {
   display: flex;
+ 
 }
 .navbar a {
   color: var(--text-color);
@@ -139,7 +141,12 @@ span {
 }
 section {
   /* 100px from top- and bottom 10% from left and right  */
-  padding: 70px 10%;
+  padding: 60px 10%;
+  transition: 2s;
+}
+.section--hidden {
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
 }
 .home {
   min-height: 100vh;
@@ -406,8 +413,9 @@ section {
   place-items: flex-end;
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
-  height: 20rem;
+  height: 17rem;
   margin-left: 13rem;
+  padding: 20px;
 }
 
 .info-about1:hover,

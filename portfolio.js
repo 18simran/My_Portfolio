@@ -53,23 +53,28 @@ readBtn.addEventListener("click", openModal);
 closeReadButton.addEventListener("click", closeModal);
 
 //my skills circles
-const circles = document.querySelectorAll(".circle");
-circles.forEach((circle) => {
-  var dots = circle.getAttribute("data-dots");
-  var marked = circle.getAttribute("data-percent");
-  var percent = Math.floor((dots * marked) / 100);
-  console.log(percent);
-  var points = "";
-  var rotate = 360 / dots;
-  for (let i = 0; i < dots; i++) {
-    points += `<div class="points" style="--i: ${i}; --rot:${rotate}deg"></div>`;
-  }
-  circle.innerHTML = points;
-  const pointsMarked = circle.querySelectorAll(".points");
-  for (let i = 0; i < percent; i++) {
-    pointsMarked[i].classList.add("marked");
+const start = skills.getBoundingClientRect();
+window.addEventListener("scroll", function () {
+  if (window.scrollY > start.top) {
+    const circles = document.querySelectorAll(".circle");
+    circles.forEach((circle) => {
+      var dots = circle.getAttribute("data-dots");
+      var marked = circle.getAttribute("data-percent");
+      var percent = Math.floor((dots * marked) / 100);
+      var points = "";
+      var rotate = 360 / dots;
+      for (let i = 0; i < dots; i++) {
+        points += `<div class="points" style="--i: ${i}; --rot:${rotate}deg"></div>`;
+      }
+      circle.innerHTML = points;
+      const pointsMarked = circle.querySelectorAll(".points");
+      for (let i = 0; i < percent; i++) {
+        pointsMarked[i].classList.add("marked");
+      }
+    });
   }
 });
+
 //sticky navbar
 const header = document.querySelector("header");
 const home = document.querySelector(".about");
@@ -92,3 +97,19 @@ window.onscroll = () => {
   menuIcon.classList.remove("bx-x");
   navList.classList.remove("open");
 };
+
+//reveal-on-scroll feature using intersectionObserver
+const allSections = document.querySelectorAll("section");
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
+};
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.25,
+});
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+});
