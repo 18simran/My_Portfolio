@@ -110,7 +110,6 @@ span {
 }
 .navbar {
   display: flex;
- 
 }
 .navbar a {
   color: var(--text-color);
@@ -495,16 +494,15 @@ Services section css
   flex: 1 1 18rem;
   padding: 2rem 1rem 2rem;
   text-align: center;
-  background: #cc99e6;
+  background: rgb(204, 153, 230, 0.6);
+
   transition: transform 0.4s;
   border-radius: 10px;
 }
-.service-btn {
-  width: auto;
-  justify-content: center;
-}
+
 .service-box:hover {
   transform: translateY(-0.7rem);
+  background: #cc99e6;
 }
 .service-icon {
   border: 2px solid var(--hover-color);
@@ -897,6 +895,9 @@ keyframes
     font-size: 13px;
     top: 10%;
     left: 35%;
+  }
+  header {
+    padding: 10px 10px;
   }
 
   .about-details {
