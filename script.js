@@ -75,6 +75,32 @@ window.addEventListener("scroll", function () {
     });
   }
 });
+//skill-bar
+
+document.addEventListener("DOMContentLoaded", () => {
+  const skillSection = document.querySelector(".skills-main");
+  const skillBars = document.querySelectorAll(".skill-bar .bar span");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          skillBars.forEach((bar) => {
+            bar.style.width = "0%"; // Reset width
+            bar.style.animation = "none"; // Reset animation
+            setTimeout(() => {
+              bar.style.width = bar.getAttribute("data-width");
+              bar.style.animation = bar.classList[0] + " linear 3s"; // Restart animation
+            }, 100); // Delay to allow reset
+          });
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(skillSection);
+});
 
 //sticky navbar
 const header = document.querySelector("header");
@@ -113,4 +139,29 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 });
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
+});
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+document.addEventListener("DOMContentLoaded", () => {
+  const repoCards = document.querySelectorAll(".repo-card");
+
+  repoCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const url = card.getAttribute("data-url");
+      window.open(url, "_blank");
+    });
+  });
+
+  // Add fade-in effect for GitHub profile and repo cards
+  const githubProfile = document.querySelector(".github-profile");
+  const repoCardsContainer = document.querySelector(".github-repos");
+
+  githubProfile.style.opacity = 0;
+  repoCardsContainer.style.opacity = 0;
+  githubProfile.style.transition = "opacity 1s ease-in-out";
+  repoCardsContainer.style.transition = "opacity 1s ease-in-out";
+
+  setTimeout(() => {
+    githubProfile.style.opacity = 1;
+    repoCardsContainer.style.opacity = 1;
+  }, 500);
 });
