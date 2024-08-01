@@ -8,6 +8,22 @@
   text-decoration: none;
   pointer: none;
 }
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+/* For other browsers */
+a,
+button,
+input,
+textarea {
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 :root {
   --text-color: #582f0e;
   --secon-text-color: #114e47;
