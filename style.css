@@ -136,6 +136,7 @@ span {
 }
 .navbar li:hover {
   text-shadow: var(--font-neon-text-shadow);
+  transition: 400ms ease-in-out;
 }
 .navbar .bx {
   font-size: 24px;
@@ -352,7 +353,7 @@ section {
   background: #503c3c;
 }
 .overlay {
-  background: #503c3c;
+  background: rgb(80, 60, 60, 0.6);
   filter: blur(30px);
   min-height: 100vh;
   width: 100%;
@@ -456,6 +457,13 @@ section {
   padding: 2rem;
   border-radius: 2rem;
   box-shadow: var(--purple-box-shadow);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: scale(0.9);
+}
+.read-hidden.active {
+  opacity: 1;
+  transform: scale(1);
 }
 .read-hidden p {
   color: var(--text-color);
@@ -475,7 +483,7 @@ section {
   box-shadow: 0px 10px 0.7rem var(--text-color);
   margin-top: 2rem;
   cursor: pointer;
-  transition: all 1s ease-in-out;
+  transition: 200ms ease-in-out;
 }
 .read-btn:hover,
 .close-read-btn:hover {
@@ -515,7 +523,7 @@ Services section css
   text-align: center;
   background: #503c3c;
 
-  transition: transform 0.4s;
+  transition: 1s ease;
   border-radius: 10px;
 }
 
@@ -523,6 +531,7 @@ Services section css
   transform: translateY(-0.7rem);
   background: #472c20;
   box-shadow: 0px 10px 1rem var(--text-color);
+  transition: transform 800ms;
 }
 .service-icon {
   border: 2px solid var(--text-color);
@@ -760,7 +769,7 @@ Github SECTION
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: 1s ease;
   cursor: pointer;
   color: #ede0d4;
 }
@@ -768,6 +777,7 @@ Github SECTION
 .repo-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: 1s ease;
 }
 
 .repo-header {
@@ -839,11 +849,13 @@ CONTACT SECTION
   text-align: center;
   border-radius: 10px;
   font-size: 16px;
+  transition: all 0.8s ease;
 }
 .formBtn .form-btn:hover {
   background: #503c3c;
   color: #ede0d4;
   box-shadow: 0 0 5rem #ede0d4;
+  transition: 0.8s ease-in-out;
 }
 
 footer {
