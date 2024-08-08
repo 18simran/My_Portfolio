@@ -45,11 +45,18 @@ const overlayButton = document.querySelector(".overlay");
 const openModal = function () {
   readHidden.classList.remove("hidden");
   overlayButton.classList.remove("hidden");
+  setTimeout(() => {
+    readHidden.classList.add("active");
+  }, 10);
 };
 const closeModal = function () {
-  readHidden.classList.add("hidden");
-  overlayButton.classList.add("hidden");
+  readHidden.classList.remove("active");
+  setTimeout(() => {
+    readHidden.classList.add("hidden");
+    overlayButton.classList.add("hidden");
+  }, 300);
 };
+
 readBtn.addEventListener("click", openModal);
 closeReadButton.addEventListener("click", closeModal);
 
