@@ -61,7 +61,7 @@ readBtn.addEventListener("click", openModal);
 closeReadButton.addEventListener("click", closeModal);
 
 //my skills circles
-const start = skills.getBoundingClientRect();
+const start = services.getBoundingClientRect();
 window.addEventListener("scroll", function () {
   if (window.scrollY > start.top) {
     const circles = document.querySelectorAll(".circle");
