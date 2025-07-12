@@ -1,6 +1,6 @@
 # My Portfolio
 
-My Portfolio [My_portfolio](https://mmyresume.netlify.app) which features some of my github projects as well as my resume and technical skills.
+My Portfolio [My_portfolio](https://simranpersonalportfolioo.netlify.app/) which features some of my github projects as well as my resume and technical skills.
 
 ## Built With
 
